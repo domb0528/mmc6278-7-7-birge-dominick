@@ -137,8 +137,8 @@ router.post('/login', async (req, res) => {
     if (!isCorrectPassword)
       return res.status(400).send('Password is incorrect')
   
-    req.session.isLoggedIn = true
-    req.session.user = user
+    req.session.loggedIn = true
+    req.session.userId = user.id
     req.session.save(() => res.redirect('/'))
   } catch(err) {
     res.status(500).send('Error logging in: ' + err.message || err.sqlMessage)
@@ -158,7 +158,7 @@ router.post('/login', async (req, res) => {
 
 router.get('/logout', async (req, res) => {
   router.get('/logout', (req, res) => {
-    req.session.destroy(() => res.redirect('/'))
+    
   })
   // call req.session.destroy and in the callback redirect to /
 })

@@ -10,6 +10,7 @@
 > music_shop_auth@1.0.0 mysql:stop
 > docker container stop mysql-sandbox
 
+mysql-sandbox
 
 > music_shop_auth@1.0.0 mysql:start
 > export FLAG=-d DB_NAME=music_shop_db && npm run mysql:run
@@ -18,7 +19,7 @@
 > music_shop_auth@1.0.0 mysql:run
 > docker run $FLAG --rm -p 3306:3306 -v $(pwd)/schema:/docker-entrypoint-initdb.d --name=mysql-sandbox -e MYSQL_ALLOW_EMPTY_PASSWORD=root -e MYSQL_DATABASE=$DB_NAME mysql:8 mysqld --authentication_policy=mysql_native_password
 
-212a75cf3811f7faa1fc98dea2da3956b4f34779345f19372614464e7e89130a
+4e51ed6d1c8b2072f45e4368bebdc38cecbca390b6c3e627b7599d7f67274383
 WAITING FOR MYSQL TO START
 WAITING 1 SEC
 WAITING 1 SEC
@@ -44,13 +45,13 @@ WAITING 1 SEC
       ✔ /images/strings.jpg should serve strings image
     e-commerce api
       authentication
-        ✔ POST /api/user should create user and redirect to /login (76ms)
-        ✔ POST /api/user should store password as hash (128ms)
+        ✔ POST /api/user should create user and redirect to /login (78ms)
+        ✔ POST /api/user should store password as hash (125ms)
         ✔ POST /api/user should return 400 if no login info is sent
         ✔ POST /api/user should return 400 if no username is sent
         ✔ POST /api/user should return 400 if no password is sent
-        ✔ POST /api/login with correct username/pass should log user in and redirect to / (68ms)
-        ✔ POST /api/login with wrong password return 400 (61ms)
+        ✔ POST /api/login with correct username/pass should log user in and redirect to / (67ms)
+        ✔ POST /api/login with wrong password return 400 (60ms)
         1) POST /api/login with wrong username return 400
         ✔ POST /api/login with no username/pass should return 400
         ✔ POST /api/login with no username return 400
@@ -74,7 +75,7 @@ WAITING 1 SEC
         17) DELETE /api/cart/ should empty cart
     e-commerce front-end routes
       GET / - index/inventory page
-        ✔ should return HTML for index page (105ms)
+        ✔ should return HTML for index page (107ms)
         ✔ should show login link instead of cart count if not logged in
         18) should show cart count if logged in
         ✔ should render names of items
@@ -223,7 +224,7 @@ WAITING 1 SEC
           61) should render calculatedPrice (quantity * price)
           62) should render remove btn
       GET /login
-        ✔ should return HTML for login page
+        ✔ should return HTML for login page (40ms)
       GET /create-account
         ✔ should return HTML for sign up page
 
