@@ -18,7 +18,7 @@
 > music_shop_auth@1.0.0 mysql:run
 > docker run $FLAG --rm -p 3306:3306 -v $(pwd)/schema:/docker-entrypoint-initdb.d --name=mysql-sandbox -e MYSQL_ALLOW_EMPTY_PASSWORD=root -e MYSQL_DATABASE=$DB_NAME mysql:8 mysqld --authentication_policy=mysql_native_password
 
-25b28ce139f85dafac4b45b81dbc8bce3318a997cf647487de8937d0d857f1b9
+115e1bf2e0eed6e5e3e5d18df4aef82293b4a51624935c55af1cfa0ebbf9347b
 WAITING FOR MYSQL TO START
 WAITING 1 SEC
 WAITING 1 SEC
@@ -44,24 +44,24 @@ WAITING 1 SEC
       ✔ /images/strings.jpg should serve strings image
     e-commerce api
       authentication
-        ✔ POST /api/user should create user and redirect to /login (73ms)
-        ✔ POST /api/user should store password as hash (127ms)
+        ✔ POST /api/user should create user and redirect to /login (74ms)
+        ✔ POST /api/user should store password as hash (130ms)
         ✔ POST /api/user should return 400 if no login info is sent
         ✔ POST /api/user should return 400 if no username is sent
         ✔ POST /api/user should return 400 if no password is sent
-        ✔ POST /api/login with correct username/pass should log user in and redirect to / (69ms)
-        ✔ POST /api/login with wrong password return 400 (61ms)
+        ✔ POST /api/login with correct username/pass should log user in and redirect to / (72ms)
+        ✔ POST /api/login with wrong password return 400 (62ms)
         1) POST /api/login with wrong username return 400
         ✔ POST /api/login with no username/pass should return 400
         ✔ POST /api/login with no username return 400
         ✔ POST /api/login with no password return 400
         ✔ GET /api/logout should log user out and redirect to /
-        2) POST /api/cart should redirect to /login if not logged in
-        3) DELETE /api/cart should redirect to /login if not logged in
-        4) PUT /api/cart/:id should redirect to /login if not logged in
-        5) DELETE /api/cart/:id should redirect to /login if not logged in
-        ✔ Logging in should allow access to cart page (98ms)
-        6) Logging out should NOT allow access to cart page
+        ✔ POST /api/cart should redirect to /login if not logged in
+        ✔ DELETE /api/cart should redirect to /login if not logged in
+        ✔ PUT /api/cart/:id should redirect to /login if not logged in
+        ✔ DELETE /api/cart/:id should redirect to /login if not logged in
+        ✔ Logging in should allow access to cart page (103ms)
+        ✔ Logging out should NOT allow access to cart page (85ms)
       cart
         ✔ POST /api/cart should add to cart
         ✔ POST /api/cart should return 404 if inventory item does not exist
@@ -74,9 +74,9 @@ WAITING 1 SEC
         ✔ DELETE /api/cart/ should empty cart
     e-commerce front-end routes
       GET / - index/inventory page
-        ✔ should return HTML for index page (46ms)
+        ✔ should return HTML for index page (50ms)
         ✔ should show login link instead of cart count if not logged in
-        ✔ should show cart count if logged in (75ms)
+        ✔ should show cart count if logged in (77ms)
         ✔ should render names of items
         ✔ should render items for sale in link tags that lead to product page
         ✔ should render price of items
@@ -85,7 +85,7 @@ WAITING 1 SEC
         GET /product/1 - product page for Stratocaster
           ✔ should return HTML
           ✔ should show login link instead of cart count if not logged in
-          ✔ should show cart count if logged in (79ms)
+          ✔ should show cart count if logged in (84ms)
           ✔ should show name (Stratocaster)
           ✔ should show price ($599.99)
           ✔ should show description (One of the most iconic electric guitars ever made.)
@@ -96,7 +96,7 @@ WAITING 1 SEC
         GET /product/2 - product page for Mini Amp
           ✔ should return HTML
           ✔ should show login link instead of cart count if not logged in
-          ✔ should show cart count if logged in (77ms)
+          ✔ should show cart count if logged in (79ms)
           ✔ should show name (Mini Amp)
           ✔ should show price ($49.99)
           ✔ should show description (A small practice amp that shouldn't annoy roommates or neighbors.)
@@ -107,7 +107,7 @@ WAITING 1 SEC
         GET /product/3 - product page for Bass Guitar
           ✔ should return HTML
           ✔ should show login link instead of cart count if not logged in
-          ✔ should show cart count if logged in (80ms)
+          ✔ should show cart count if logged in (79ms)
           ✔ should show name (Bass Guitar)
           ✔ should show price ($399.99)
           ✔ should show description (A four string electric bass guitar.)
@@ -129,7 +129,7 @@ WAITING 1 SEC
         GET /product/5 - product page for Ukulele
           ✔ should return HTML
           ✔ should show login link instead of cart count if not logged in
-          ✔ should show cart count if logged in (77ms)
+          ✔ should show cart count if logged in (79ms)
           ✔ should show name (Ukulele)
           ✔ should show price ($99.99)
           ✔ should show description (A four string tenor ukulele tuned GCEA.)
@@ -140,7 +140,7 @@ WAITING 1 SEC
         GET /product/6 - product page for Strap
           ✔ should return HTML
           ✔ should show login link instead of cart count if not logged in
-          ✔ should show cart count if logged in (79ms)
+          ✔ should show cart count if logged in (80ms)
           ✔ should show name (Strap)
           ✔ should show price ($29.99)
           ✔ should show description (Woven instrument strap keeps your guitar or bass strapped to you to allow playing while standing.)
@@ -151,7 +151,7 @@ WAITING 1 SEC
         GET /product/7 - product page for Assortment of Picks
           ✔ should return HTML
           ✔ should show login link instead of cart count if not logged in
-          ✔ should show cart count if logged in (78ms)
+          ✔ should show cart count if logged in (83ms)
           ✔ should show name (Assortment of Picks)
           ✔ should show price ($9.99)
           ✔ should show description (Picks for acoustic or electric players.)
@@ -173,7 +173,7 @@ WAITING 1 SEC
         GET /product/9 - product page for Instrument Cable
           ✔ should return HTML
           ✔ should show login link instead of cart count if not logged in
-          ✔ should show cart count if logged in (79ms)
+          ✔ should show cart count if logged in (81ms)
           ✔ should show name (Instrument Cable)
           ✔ should show price ($19.99)
           ✔ should show description (A cable to connect an electric guitar or bass to an amplifier.)
@@ -228,8 +228,8 @@ WAITING 1 SEC
         ✔ should return HTML for sign up page
 
 
-  166 passing (3s)
-  6 failing
+  171 passing (3s)
+  1 failing
 
   1) e-commerce site
        e-commerce api
@@ -243,76 +243,6 @@ WAITING 1 SEC
       +400
       
       at Context.<anonymous> (test/tests.js:245:31)
-      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-
-  2) e-commerce site
-       e-commerce api
-         authentication
-           POST /api/cart should redirect to /login if not logged in:
-
-      AssertionError: expected 401 to equal 302
-      + expected - actual
-
-      -401
-      +302
-      
-      at Context.<anonymous> (test/tests.js:274:33)
-      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-
-  3) e-commerce site
-       e-commerce api
-         authentication
-           DELETE /api/cart should redirect to /login if not logged in:
-
-      AssertionError: expected 401 to equal 302
-      + expected - actual
-
-      -401
-      +302
-      
-      at Context.<anonymous> (test/tests.js:274:33)
-      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-
-  4) e-commerce site
-       e-commerce api
-         authentication
-           PUT /api/cart/:id should redirect to /login if not logged in:
-
-      AssertionError: expected 401 to equal 302
-      + expected - actual
-
-      -401
-      +302
-      
-      at Context.<anonymous> (test/tests.js:281:33)
-      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-
-  5) e-commerce site
-       e-commerce api
-         authentication
-           DELETE /api/cart/:id should redirect to /login if not logged in:
-
-      AssertionError: expected 401 to equal 302
-      + expected - actual
-
-      -401
-      +302
-      
-      at Context.<anonymous> (test/tests.js:281:33)
-      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-
-  6) e-commerce site
-       e-commerce api
-         authentication
-           Logging out should NOT allow access to cart page:
-
-      AssertionError: expected 401 to equal 302
-      + expected - actual
-
-      -401
-      +302
-      
-      at Context.<anonymous> (test/tests.js:312:47)
       at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
 
 
