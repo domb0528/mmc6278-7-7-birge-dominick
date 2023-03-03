@@ -1,0 +1,59 @@
+
+> music_shop_auth@1.0.0 test
+> export FLAG=--exit && npm run test:run
+
+
+> music_shop_auth@1.0.0 test:run
+> npm run mysql:stop; npm run mysql:start && node test/db_check.js && mocha test/tests.js $FLAG; npm run mysql:stop
+
+
+> music_shop_auth@1.0.0 mysql:stop
+> docker container stop mysql-sandbox
+
+
+> music_shop_auth@1.0.0 mysql:start
+> export FLAG=-d DB_NAME=music_shop_db && npm run mysql:run
+
+
+> music_shop_auth@1.0.0 mysql:run
+> docker run $FLAG --rm -p 3306:3306 -v $(pwd)/schema:/docker-entrypoint-initdb.d --name=mysql-sandbox -e MYSQL_ALLOW_EMPTY_PASSWORD=root -e MYSQL_DATABASE=$DB_NAME mysql:8 mysqld --authentication_policy=mysql_native_password
+
+2ef447177577fa406868a6e936019efe108a18243140d3b5ad449412f20f9883
+WAITING FOR MYSQL TO START
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+WAITING 1 SEC
+
+
+Could not connect to MySQL
+
+> music_shop_auth@1.0.0 mysql:stop
+> docker container stop mysql-sandbox
+
